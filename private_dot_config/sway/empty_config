@@ -10,7 +10,7 @@ default_border none
 hide_edge_borders smart_no_gaps
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec wezterm
 
 # kill focused window
 bindsym $mod+Shift+q kill
