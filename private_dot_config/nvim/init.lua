@@ -79,7 +79,6 @@ require('lazy').setup({
   -- require 'rasmus.plugins.lint',
   require 'rasmus.plugins.neo-tree',
   require 'rasmus.plugins.gitsigns',
-  require 'rasmus.plugins.chat-gpt',
   require 'rasmus.plugins.vimtex',
   require 'rasmus.plugins.obsidian',
 }, {
