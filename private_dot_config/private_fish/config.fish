@@ -9,6 +9,7 @@ alias which "type -a"
 set -x FZF_DEFAULT_COMMAND 'ag -g "" --hidden --ignore .git'
 set -Ux EDITOR nvim
 set -Ux GITHUB_USERNAME "rasmusravn"
+set -Ux GITHUB_EMAIL "git.pavilion936@passmail.com"
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
