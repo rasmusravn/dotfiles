@@ -6,6 +6,7 @@ alias mv "mv -i"
 alias mkdir "mkdir -p"
 alias h history
 alias which "type -a"
+alias chezmoi cm
 set -x FZF_DEFAULT_COMMAND 'ag -g "" --hidden --ignore .git'
 set -Ux EDITOR nvim
 set -Ux GITHUB_USERNAME "rasmusravn"
