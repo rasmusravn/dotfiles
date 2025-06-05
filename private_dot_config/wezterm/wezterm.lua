@@ -10,7 +10,7 @@ return {
 		top = 10,
 		bottom = 10,
 	},
-	window_background_opacity = 0.96,
+	window_background_opacity = 0.76,
 	color_scheme = "Gruvbox Dark (Gogh)",
 	enable_tab_bar = false,
 }
