@@ -16,7 +16,7 @@ bindsym $mod+Return exec wezterm
 bindsym $mod+Shift+q kill
 
 # Program Launcher
-bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+d exec --no-startup-id wofi -show drun
 
 exec --no-startup-id xrandr --output HDMI-A-1-0 --auto --primary --left-of eDP-1-0
 
@@ -157,6 +157,3 @@ bindsym XF86KbdBrightnessDown exec echo 0 | tee /sys/class/leds/asus::kbd_backli
 bindsym $mod+b exec blueman-manager
 
 output * bg /home/rasmus/Pictures/lort-nature.png fill
-
-exec swaymsg "workspace 1; exec kitty"
-exec swaymsg "workspace 2; exec firefox"
