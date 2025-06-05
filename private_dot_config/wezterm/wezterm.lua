@@ -2,8 +2,7 @@ local wezterm = require("wezterm")
 
 return {
 	font = wezterm.font_with_fallback({
-		--"JetBrains Mono",
-		"Noto Color Emoji",
+		"JetBrains Mono",
 	}),
 	window_padding = {
 		left = 20,
