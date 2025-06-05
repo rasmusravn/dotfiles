@@ -18,7 +18,7 @@ bindsym $mod+Shift+q kill
 # Program Launcher
 bindsym $mod+d exec --no-startup-id wofi -show drun
 
-exec --no-startup-id xrandr --output HDMI-A-1-0 --auto --primary --left-of eDP-1-0
+# exec --no-startup-id xrandr --output HDMI-A-1-0 --auto --primary --left-of eDP-1-0
 
 # change focus
 bindsym $mod+h focus left
@@ -117,9 +117,6 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
-
-# Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
     swaybar_command waybar
