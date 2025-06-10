@@ -1,3 +1,10 @@
+exec_always {
+    export XDG_CURRENT_DESKTOP=gnome
+    export XDG_SESSION_DESKTOP=sway
+    export GDK_BACKEND=wayland,x11
+    export QT_QPA_PLATFORM=wayland;xcb
+    export MOZ_ENABLE_WAYLAND=1
+}
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -155,10 +162,3 @@ bindsym $mod+b exec blueman-manager
 
 output * bg /home/rasmus/Pictures/lort-nature.png fill
 
-exec_always {
-    export XDG_CURRENT_DESKTOP=gnome
-    export XDG_SESSION_DESKTOP=sway
-    export GDK_BACKEND=wayland,x11
-    export QT_QPA_PLATFORM=wayland;xcb
-    export MOZ_ENABLE_WAYLAND=1
-}
