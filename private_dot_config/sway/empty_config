@@ -154,3 +154,11 @@ bindsym XF86KbdBrightnessDown exec echo 0 | tee /sys/class/leds/asus::kbd_backli
 bindsym $mod+b exec blueman-manager
 
 output * bg /home/rasmus/Pictures/lort-nature.png fill
+
+exec_always {
+    export XDG_CURRENT_DESKTOP=gnome
+    export XDG_SESSION_DESKTOP=sway
+    export GDK_BACKEND=wayland,x11
+    export QT_QPA_PLATFORM=wayland;xcb
+    export MOZ_ENABLE_WAYLAND=1
+}
