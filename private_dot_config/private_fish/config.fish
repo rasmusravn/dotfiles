@@ -1,4 +1,3 @@
-alias cat bat
 alias rm "rm -i"
 alias cp "cp -i"
 alias vim nvim
