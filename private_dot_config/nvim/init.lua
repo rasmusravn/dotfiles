@@ -82,7 +82,7 @@ require("lazy").setup({
 	require("rasmus.plugins.vimtex"),
 	require("rasmus.plugins.obsidian"),
 	require("rasmus.plugins.oil"),
-	require("rasmus.plugins.copilot"),
+	require("rasmus.plugins.copilot")
 }, {
 	ui = {
 		-- If you are using a Nerd Font: set icons to an empty table which will use the
