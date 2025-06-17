@@ -167,7 +167,7 @@ return { -- LSP Configuration & Plugins
       -- tsserver = {},
       --
       pyright = {},
-      ruff_lsp = {},
+      ruff = {},
 
       lua_ls = {
         -- cmd = {...},
