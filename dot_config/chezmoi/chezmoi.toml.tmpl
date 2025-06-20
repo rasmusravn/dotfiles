@@ -1,0 +1,7 @@
+[data]
+name = "Your Name"
+email = "personal.email@example.com"
+
+{{- if eq .chezmoi.hostname "enterprise-wks-123" }}
+email = "work.email@company.com"
+{{- end }}
