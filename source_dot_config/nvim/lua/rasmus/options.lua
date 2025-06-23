@@ -1,7 +1,4 @@
--- [[ Setting options ]]
--- See `:help vim.opt`
--- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
+
 
 -- Make line numbers default
 vim.opt.number = true
@@ -61,4 +58,4 @@ vim.opt.scrolloff = 10
 
 
 vim.g.maplocalleader = ','
-vim.o.autochdir = true
+-- vim.o.autochdir is disabled as it can cause issues. Consider a project management plugin instead.

@@ -1,0 +1,26 @@
+#!/bin/bash
+# vim: set ft=sh
+#
+# This script is run once by chezmoi to install essential packages.
+
+set -eufo pipefail
+
+{{ if eq .chezmoi.os "linux-debian" "linux-ubuntu" -}}
+echo "Installing packages with apt..."
+sudo apt update
+sudo apt install -y \
+    build-essential \
+    fish \
+    neovim \
+    sway \
+    waybar \
+    wofi \
+    tmux \
+    ripgrep \
+    fd-find
+{{ else -}}
+echo "Unsupported OS: {{ .chezmoi.os }}"
+exit 1
+{{ end -}}
+
+echo "Package installation complete."

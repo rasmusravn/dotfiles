@@ -1,15 +1,15 @@
+# ~/.config/chezmoi/chezmoi.toml.tmpl
+
 [data]
-name = "Your Name"
-email = "personal.email@example.com"
-obsidian_vault_path = "{{ .chezmoi.homeDir }}/rasmussi"
+  name = "Rasmus Ravn"
+  email = "YOUR_EMAIL@example.com"
 
-[data.linux]
-pdf_viewer = "zathura"
+[data.font]
+  monospace = "JetBrainsMono Nerd Font"
 
-[data.windows]
-pdf_viewer = "sumatrapdf_fix.sh"
-obsidian_vault_path = "/mnt/c/Users/youruser/Documents/Obsidian Vault"
+[edit]
+  command = "nvim"
+  args = ["-f"]
 
-{{- if eq .chezmoi.hostname "enterprise-wks-123" }}
-email = "work.email@company.com"
-{{- end }}
+[template]
+  options = ["missingkey=error"]
