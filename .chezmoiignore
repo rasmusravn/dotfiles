@@ -1,1 +1,4 @@
 # Ignore machine-specific cache files
+# Common unwanted files
+.DS_Store
+Thumbs.db
