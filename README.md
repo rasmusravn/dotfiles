@@ -21,3 +21,12 @@ These dotfiles are managed with [chezmoi](https://www.chezmoi.io/). The layout k
 - wofi
 
 See individual files in `source_dot_config` for details.
+### Configuration
+
+This setup uses `chezmoi` templates for theming. You must define the following variables in your `~/.config/chezmoi/chezmoi.toml` file for the theme to apply correctly.
+
+**Example:**
+```toml
+[data]
+  font = { monospace = "JetBrainsMono Nerd Font" }
+```

@@ -25,13 +25,13 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 -- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 -- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
+
 
 local function remove_carriage_returns()
   vim.cmd '%s/\\r$//'
 end
 
 -- Map the function to <leader>M
-vim.keymap.set('n', '<leader>M', remove_carriage_returns, { desc = 'Remove ^M characters at end of lines' })
-vim.keymap.set('n', '<leader>tz', ':ZenMode<CR>', { noremap = true, silent = true, desc = ' Toggle ZenMode' })
+  vim.keymap.set('n', '<leader>M', remove_carriage_returns, { desc = 'Remove ^M characters at end of lines' })
+  vim.keymap.set('n', '<leader>tz', ':ZenMode<CR>', { noremap = true, silent = true, desc = ' Toggle ZenMode' })
+  vim.keymap.set('n', '<leader>lc', vim.lsp.buf.clear_references, { desc = '[LSP] Clear References' })

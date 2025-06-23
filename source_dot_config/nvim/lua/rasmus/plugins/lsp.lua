@@ -59,12 +59,6 @@ return { -- LSP Configuration & Plugins
             callback = vim.lsp.buf.document_highlight,
           })
 
-          vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
-            buffer = event.buf,
-            group = highlight_augroup,
-            callback = vim.lsp.buf.clear_references,
-          })
-
           vim.api.nvim_create_autocmd('LspDetach', {
             group = vim.api.nvim_create_augroup('rasmus-lsp-detach', { clear = true }),
             callback = function(event2)
