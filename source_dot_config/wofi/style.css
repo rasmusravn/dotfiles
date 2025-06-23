@@ -5,7 +5,7 @@
 @define-color gruv-blue #458588;
 
 window {
-    font-family: JetBrainsMono Nerd Font;
+    font-family: "{{ .font.monospace }}";
     font-size: 16px;
     background-color: @gruv-bg0; /* Gruvbox dark background */
     background-image: none; /* Remove gradient for simplicity */

@@ -4,7 +4,7 @@ These dotfiles are managed with [chezmoi](https://www.chezmoi.io/). The layout k
 
 ## Structure
 - `dot_config/chezmoi/chezmoi.toml.tmpl` – global chezmoi configuration and template data.
-- `private_dot_config/*` – actual application configuration files. These are kept private so machine specific templating can be applied.
+- `source_dot_config/*` – chezmoi source files that will be placed in `~/.config`.
 - `dot_local/bin/` – personal scripts. Executable files will be installed in `~/.local/bin` when applying the dotfiles.
 
 ## Installation
@@ -20,4 +20,4 @@ These dotfiles are managed with [chezmoi](https://www.chezmoi.io/). The layout k
 - neovim
 - wofi
 
-See individual files in `private_dot_config` for details.
+See individual files in `source_dot_config` for details.
