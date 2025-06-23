@@ -5,7 +5,7 @@
 
 set -eufo pipefail
 
-{{ if eq .chezmoi.os "linux-debian" "linux-ubuntu" -}}
+{{ if eq .chezmoi.os "linux-debian" "linux-ubuntu" "linux" -}}
 echo "Installing packages with apt..."
 sudo apt update
 sudo apt install -y \
