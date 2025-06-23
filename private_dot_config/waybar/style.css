@@ -1,3 +1,15 @@
+/* Gruvbox Dark Theme */
+@define-color gruv-bg0 #282828;
+@define-color gruv-bg1 #3c3836;
+@define-color gruv-fg0 #ebdbb2;
+@define-color gruv-red #cc241d;
+@define-color gruv-green #98971a;
+@define-color gruv-yellow #d79921;
+@define-color gruv-blue #458588;
+@define-color gruv-purple #b16286;
+@define-color gruv-aqua #689d6a;
+@define-color gruv-orange #d65d0e;
+
 * {
     font-family: 'Jetbrains Mono', sans-serif;
     font-weight: bold;
@@ -7,16 +19,16 @@
 
 window#waybar {
     background-color: transparent;
-    color: #ebdbb2;
+    color: @gruv-fg0;
 }
 
 #workspaces {
 }
 
 #workspaces button.active {
-    background-color: #8ec07c;
+    background-color: @gruv-aqua;
     padding: 0 15px 0 15px;
-    color: #282828;
+    color: @gruv-bg0;
 }
 
 .modules-left {
@@ -30,61 +42,61 @@ window#waybar {
 }
 
 .modules-center {
-    background-color: #282828;
+    background-color: @gruv-bg0;
 }
 
 #battery {
    padding-right: 20px;
     padding-left: 20px;
-    color: #83a598;
-    background-color: #282828;
+    color: @gruv-aqua;
+    background-color: @gruv-bg0;
 }
 
 #clock {
     padding-right: 20px;
     padding-left: 20px;
-    background-color: #282828;
-    color: #b8bb26;
+    background-color: @gruv-bg0;
+    color: @gruv-green;
 }
 
 #network {
     padding-right: 20px;
     padding-left: 20px;
-    background-color: #282828;
-    color: #d3869b;
+    background-color: @gruv-bg0;
+    color: @gruv-purple;
 }
 
 #pulseaudio {
     padding-right: 20px;
     padding-left: 20px;
-    background-color: #282828;
-    color: #fabd2f;
+    background-color: @gruv-bg0;
+    color: @gruv-yellow;
 }
 
 #power-profiles-daemon {
     padding-right: 20px;
     padding-left: 20px;
-    background-color: #282828;
-    color: #fe8019;
+    background-color: @gruv-bg0;
+    color: @gruv-orange;
 }
 
 #language {
     padding-right: 20px;
     padding-left: 20px;
-    background-color: #282828;
-    color: #fe8019;
+    background-color: @gruv-bg0;
+    color: @gruv-orange;
 }
 
 #bluetooth {
     padding-right: 20px;
     padding-left: 20px;
-    background-color: #282828;
-    color: #fe8019;
+    background-color: @gruv-bg0;
+    color: @gruv-orange;
 }
 
 #backlight {
     padding-right: 20px;
     padding-left: 20px;
-    background-color: #282828;
-    color: #fe8019;
+    background-color: @gruv-bg0;
+    color: @gruv-orange;
 }

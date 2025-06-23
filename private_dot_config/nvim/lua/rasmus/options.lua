@@ -59,8 +59,6 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
-vim.opt_local.conceallevel = 1
-vim.opt_local.textwidth = 80
 
 vim.g.maplocalleader = ','
 vim.o.autochdir = true

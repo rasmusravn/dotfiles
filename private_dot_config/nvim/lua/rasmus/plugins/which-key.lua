@@ -44,8 +44,9 @@ return {
 			},
 
 			-- Document existing key chains
-			spec = {
-				{ "<leader>s", group = "Search" },
+                        spec = {
+                                { "<leader>f", group = "Format" },
+                                { "<leader>s", group = "Search" },
 				{ "<leader>w", group = "Workspace" },
 				{ "<leader>h", group = "Git Hunk" },
 				{ "<leader>r", group = "Rename" },

@@ -1,10 +1,16 @@
+/* Gruvbox Dark Theme */
+@define-color gruv-bg0 #282828;
+@define-color gruv-bg1 #3c3836;
+@define-color gruv-fg0 #ebdbb2;
+@define-color gruv-blue #458588;
+
 window {
     font-family: JetBrainsMono Nerd Font;
     font-size: 16px;
-    background-color: #282828; /* Gruvbox dark background */
+    background-color: @gruv-bg0; /* Gruvbox dark background */
     background-image: none; /* Remove gradient for simplicity */
     border-radius: 12px;
-    color: #ebdbb2; /* Gruvbox light text color */
+    color: @gruv-fg0; /* Gruvbox light text color */
 }
 
 #input {
@@ -12,39 +18,39 @@ window {
     margin: 16px;
     padding: 8px;
     border-radius: 12px;
-    background-color: #3c3836; /* Gruvbox dark gray background */
-    color: #ebdbb2; /* Gruvbox light text color */
+    background-color: @gruv-bg1; /* Gruvbox dark gray background */
+    color: @gruv-fg0; /* Gruvbox light text color */
 }
 
 #inner-box {
     margin: 0px 16px 16px 16px;
-    background-color: #282828; /* Gruvbox dark background */
+    background-color: @gruv-bg0; /* Gruvbox dark background */
 }
 
 #scroll label {
     margin: 2px 8px;
-    color: #ebdbb2; /* Gruvbox light text color */
+    color: @gruv-fg0; /* Gruvbox light text color */
 }
 
 #entry {
     padding: 2px 8px;
     margin: 2px;
-    color: #ebdbb2; /* Gruvbox light text color */
-    background-color: #3c3836; /* Gruvbox dark gray background */
+    color: @gruv-fg0; /* Gruvbox light text color */
+    background-color: @gruv-bg1; /* Gruvbox dark gray background */
 }
 
 #entry:selected {
     border-radius: 8px;
-    background-color: #458588; /* Gruvbox blue for selected entry */
-    color: #ebdbb2; /* Gruvbox light text color */
+    background-color: @gruv-blue; /* Gruvbox blue for selected entry */
+    color: @gruv-fg0; /* Gruvbox light text color */
 }
 
 #entry list {
     border-radius: 8px;
-    background-color: #282828; /* Gruvbox dark background */
+    background-color: @gruv-bg0; /* Gruvbox dark background */
 }
 
 #entry image {
-    background-color: #282828; /* Gruvbox dark background */
+    background-color: @gruv-bg0; /* Gruvbox dark background */
 }
 
