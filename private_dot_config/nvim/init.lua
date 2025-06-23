@@ -17,8 +17,11 @@ vim.opt.rtp:prepend(lazypath)
 
 -- NOTE: Here is where you install your plugins.
 require("lazy").setup({
-	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
+    spec = {
+        -- discover plugins in the plugins directory
+        { import = "rasmus.plugins" },
+        -- extra plugins
+        "tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
 	-- NOTE: Plugins can also be added by using a table,
 	-- with the first argument being the link and the following
@@ -63,26 +66,7 @@ require("lazy").setup({
 	-- Then, because we use the `config` key, the configuration only runs
 	-- after the plugin has been loaded:
 	--  config = function() ... end
-	require("rasmus.plugins.which-key"),
-	require("rasmus.plugins.telescope"),
-	require("rasmus.plugins.lsp"),
-	require("rasmus.plugins.conform"),
-	require("rasmus.plugins.cmd"),
-	require("rasmus.plugins.colorscheme"),
-	require("rasmus.plugins.todo"),
-	require("rasmus.plugins.mini"),
-	require("rasmus.plugins.tree-sitter"),
-	require("rasmus.plugins.debug"),
-	require("rasmus.plugins.indent_line"),
-	require("rasmus.plugins.zen-mode"),
-	require("rasmus.plugins.twilight"),
-	-- require 'rasmus.plugins.lint',
-	require("rasmus.plugins.neo-tree"),
-	require("rasmus.plugins.gitsigns"),
-	require("rasmus.plugins.vimtex"),
-	require("rasmus.plugins.obsidian"),
-	require("rasmus.plugins.oil"),
-	require("rasmus.plugins.copilot"),
+        -- All plugin specs in lua/rasmus/plugins are automatically loaded
 }, {
 	ui = {
 		-- If you are using a Nerd Font: set icons to an empty table which will use the

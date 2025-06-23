@@ -1,6 +1,14 @@
 [data]
 name = "Your Name"
 email = "personal.email@example.com"
+obsidian_vault_path = "{{ .chezmoi.homeDir }}/rasmussi"
+
+[data.linux]
+pdf_viewer = "zathura"
+
+[data.windows]
+pdf_viewer = "sumatrapdf_fix.sh"
+obsidian_vault_path = "/mnt/c/Users/youruser/Documents/Obsidian Vault"
 
 {{- if eq .chezmoi.hostname "enterprise-wks-123" }}
 email = "work.email@company.com"
