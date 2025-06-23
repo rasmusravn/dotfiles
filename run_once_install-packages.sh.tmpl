@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-
+echo .chezmoi.os
 {{ if eq .chezmoi.os "linux" -}}
 if [ -f /etc/debian_version ]; then
     echo "Detected Debian-based system. Using apt."
