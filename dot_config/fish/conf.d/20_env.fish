@@ -3,6 +3,7 @@ set -x FZF_DEFAULT_COMMAND 'ag -g "" --hidden --ignore .git'
 set -Ux EDITOR nvim
 set -Ux GITHUB_USERNAME "rasmusravn"
 set -Ux GITHUB_EMAIL "git.pavilion936@passmail.com"
+uv generate-shell-completion fish | source
 starship init fish | source
 zoxide init fish | source
 #fnm env --use-on-cd | source
