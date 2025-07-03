@@ -1,4 +1,3 @@
-
 #!/bin/bash
 {{- /* switch-screen.tmpl */ -}}
 #
@@ -19,9 +18,17 @@ EXTERNAL="{{ .monitors.external }}"
 
 # --- Script Logic ---
 
-# Check if jq is installed. If not, send a desktop notification and exit.
-if ! command -v jq &> /dev/null; then
-    swaynag -t error -m "Dependency 'jq' is not installed. Please install it to use this script."
+# Find the absolute path to jq to avoid PATH issues when run from sway
+JQ_CMD=""
+if [ -x "/usr/bin/jq" ]; then
+    JQ_CMD="/usr/bin/jq"
+elif [ -x "/bin/jq" ]; then
+    JQ_CMD="/bin/jq"
+fi
+
+# Check if jq was found. If not, send a desktop notification and exit.
+if [ -z "$JQ_CMD" ]; then
+    swaynag -t error -m "Dependency 'jq' could not be found in /usr/bin or /bin. Please install it."
     exit 1
 fi
 
@@ -31,7 +38,7 @@ outputs=$(swaymsg -t get_outputs)
 # Check if the external monitor is currently active
 # We use jq to parse the JSON: find the object where .name matches our external monitor
 # and then return the value of its .active property.
-external_is_active=$(echo "$outputs" | jq --arg name "$EXTERNAL" '.[] | select(.name == $name) | .active')
+external_is_active=$(echo "$outputs" | $JQ_CMD --arg name "$EXTERNAL" '.[] | select(.name == $name) | .active')
 
 if [ "$external_is_active" = "true" ]; then
     # If the external monitor is active, switch to the laptop.
