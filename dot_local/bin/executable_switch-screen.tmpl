@@ -1,25 +1,45 @@
 #!/bin/bash
 {{- /* switch-screen.tmpl */ -}}
 #
-# Toggles output between the laptop screen and an external monitor.
+# Toggles display output between the laptop and external monitor in Sway,
+# ensuring only one is active at a time.
 #
+# This script is idempotent and determines the current state by querying sway.
+#
+# Depends on: sway, jq
 
+# --- Configuration from chezmoi data ---
+# Define these in your chezmoi.toml file, e.g.:
+# [data.monitors]
+#   laptop = "eDP-1-0"
+#   external = "HDMI-A-1-0"
 LAPTOP="{{ .monitors.laptop }}"
 EXTERNAL="{{ .monitors.external }}"
-STATE_FILE="/tmp/screen_toggle_state"
 
-# If the state file doesn't exist, default to laptop and create it
-if [ ! -f "$STATE_FILE" ]; then
-    echo "laptop" > "$STATE_FILE"
+# --- Script Logic ---
+
+# Check if jq is installed. If not, send a desktop notification and exit.
+if ! command -v jq &> /dev/null; then
+    swaynag -t error -m "Dependency 'jq' is not installed. Please install it to use this script."
+    exit 1
 fi
 
-# Read the current state and switch to the other
-if [ "$(cat $STATE_FILE)" = "laptop" ]; then
-    echo "Switching to external monitor: $EXTERNAL"
-    swaymsg "output '$LAPTOP' disable; output '$EXTERNAL' enable"
-    echo "external" > "$STATE_FILE"
-else
-    echo "Switching to laptop screen: $LAPTOP"
+# Get the JSON output from sway about all connected displays
+outputs=$(swaymsg -t get_outputs)
+
+# Check if the external monitor is currently active
+# We use jq to parse the JSON: find the object where .name matches our external monitor
+# and then return the value of its .active property.
+external_is_active=$(echo "$outputs" | jq --arg name "$EXTERNAL" '.[] | select(.name == $name) | .active')
+
+if [ "$external_is_active" = "true" ]; then
+    # If the external monitor is active, switch to the laptop.
+    # This command first disables the external monitor, then enables the laptop monitor.
+    echo "Switching to Laptop display ($LAPTOP)"
     swaymsg "output '$EXTERNAL' disable; output '$LAPTOP' enable"
-    echo "laptop" > "$STATE_FILE"
+else
+    # If the external monitor is not active, switch to it.
+    # This command first disables the laptop monitor, then enables the external one.
+    echo "Switching to External display ($EXTERNAL)"
+    swaymsg "output '$LAPTOP' disable; output '$EXTERNAL' enable"
 fi
