@@ -5,6 +5,7 @@
 # ensuring only one is active at a time.
 #
 # This script is idempotent and determines the current state by querying sway.
+# It first checks if the external monitor is connected before attempting to switch.
 #
 # Depends on: sway, jq
 
@@ -35,14 +36,23 @@ fi
 # Get the JSON output from sway about all connected displays
 outputs=$(swaymsg -t get_outputs)
 
-# Check if the external monitor is currently active
-# We use jq to parse the JSON: find the object where .name matches our external monitor
-# and then return the value of its .active property.
+# First, check if the external monitor is even connected.
+# We do this by seeing if an output with its name exists in the JSON array.
+external_is_connected=$(echo "$outputs" | $JQ_CMD --arg name "$EXTERNAL" '[.[] | select(.name == $name)] | length > 0')
+
+if [ "$external_is_connected" != "true" ]; then
+    # If the external monitor isn't connected, do nothing except ensure the laptop screen is on.
+    swaynag -t warning -m "External monitor ($EXTERNAL) not detected. Activating laptop display."
+    swaymsg "output '$LAPTOP' enable"
+    exit 0
+fi
+
+# If we're here, the external monitor is connected. Now, we can perform the toggle.
+# Check if the external monitor is currently active.
 external_is_active=$(echo "$outputs" | $JQ_CMD --arg name "$EXTERNAL" '.[] | select(.name == $name) | .active')
 
 if [ "$external_is_active" = "true" ]; then
     # If the external monitor is active, switch to the laptop.
-    # We send two separate commands to avoid timing issues.
     echo "Switching to Laptop display ($LAPTOP)"
     swaymsg "output '$EXTERNAL' disable"
     swaymsg "output '$LAPTOP' enable"
