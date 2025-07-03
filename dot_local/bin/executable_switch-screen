@@ -1,0 +1,24 @@
+#!/bin/bash
+#
+# Toggles output between the laptop screen and an external monitor on Sway.
+#
+
+LAPTOP="eDP-1-0"
+EXTERNAL="HDMI-A-1-0"
+STATE_FILE="/tmp/screen_toggle_state"
+
+# If the state file doesn't exist, default to laptop and create it
+if [ ! -f "$STATE_FILE" ]; then
+    echo "laptop" > "$STATE_FILE"
+fi
+
+# Read the current state and switch to the other
+if [ "$(cat $STATE_FILE)" = "laptop" ]; then
+    echo "Switching to external monitor"
+    swaymsg "output $LAPTOP disable; output $EXTERNAL enable"
+    echo "external" > "$STATE_FILE"
+else
+    echo "Switching to laptop screen"
+    swaymsg "output $EXTERNAL disable; output $LAPTOP enable"
+    echo "laptop" > "$STATE_FILE"
+fi
