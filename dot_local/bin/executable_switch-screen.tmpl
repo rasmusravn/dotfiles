@@ -1,63 +1,41 @@
 #!/bin/bash
 {{- /* switch-screen.tmpl */ -}}
 #
-# Toggles display output between the laptop and external monitor in Sway,
-# ensuring only one is active at a time.
+# A simplified script to toggle display output between a laptop and external monitor.
+# It uses a state file to remember the current display, removing the need for jq.
 #
-# This script uses a more robust method by defining the complete
-# desired state in a single command.
-#
-# Depends on: sway, jq
-
-# --- Configuration from chezmoi data ---
-# Define these in your chezmoi.toml file, e.g.:
-# [data.monitors]
-#   laptop = "eDP-1-0"
-#   external = "HDMI-A-1-0"
 LAPTOP="{{ .monitors.laptop }}"
 EXTERNAL="{{ .monitors.external }}"
 
 # --- Script Logic ---
+STATE_FILE="/tmp/sway_screen_state"
 
-# Find the absolute path to jq to avoid PATH issues when run from sway
-JQ_CMD=""
-if [ -x "/usr/bin/jq" ]; then
-    JQ_CMD="/usr/bin/jq"
-elif [ -x "/bin/jq" ]; then
-    JQ_CMD="/bin/jq"
+# If the state file doesn't exist, default to the laptop screen.
+if [ ! -f "$STATE_FILE" ]; then
+    echo "laptop" > "$STATE_FILE"
 fi
 
-# Check if jq was found. If not, send a desktop notification and exit.
-if [ -z "$JQ_CMD" ]; then
-    swaynag -t error -m "Dependency 'jq' could not be found in /usr/bin or /bin. Please install it."
-    exit 1
-fi
+CURRENT_STATE=$(cat "$STATE_FILE")
 
-# Get the JSON output from sway about all connected displays
-outputs=$(swaymsg -t get_outputs)
+if [ "$CURRENT_STATE" = "laptop" ]; then
+    # --- Try to switch from LAPTOP to EXTERNAL ---
 
-# First, check if the external monitor is even connected.
-external_is_connected=$(echo "$outputs" | $JQ_CMD --arg name "$EXTERNAL" '[.[] | select(.name == $name)] | length > 0')
-
-if [ "$external_is_connected" != "true" ]; then
-    # If the external monitor isn't connected, just ensure the laptop screen is on.
-    swaynag -t warning -m "External monitor ($EXTERNAL) not detected. Activating laptop display."
-    swaymsg "output '$LAPTOP' enable"
-    exit 0
-fi
-
-# If we're here, the external monitor is connected. Now, perform the toggle.
-# Check if the external monitor is currently active.
-external_is_active=$(echo "$outputs" | $JQ_CMD --arg name "$EXTERNAL" '.[] | select(.name == $name) | .active')
-
-if [ "$external_is_active" = "true" ]; then
-    # If the external monitor is active, switch to the laptop.
-    # Define the complete state: laptop on, external off.
-    echo "Switching to Laptop display ($LAPTOP)"
-    swaymsg "output '$LAPTOP' enable; output '$EXTERNAL' disable"
+    # Use a simple grep to check if the external monitor is connected.
+    if swaymsg -t get_outputs | grep -q "\"name\": \"$EXTERNAL\""; then
+        echo "Switching to External display ($EXTERNAL)"
+        swaymsg "output '$LAPTOP' disable; output '$EXTERNAL' enable"
+        # Update the state to reflect the change
+        echo "external" > "$STATE_FILE"
+    else
+        # If the monitor isn't connected, notify the user and do nothing.
+        swaynag -t warning -m "External monitor ($EXTERNAL) not detected."
+        exit 1
+    fi
 else
-    # If the external monitor is not active, switch to it.
-    # Define the complete state: external on, laptop off.
-    echo "Switching to External display ($EXTERNAL)"
-    swaymsg "output '$EXTERNAL' enable; output '$LAPTOP' disable"
+    # --- Switch from EXTERNAL to LAPTOP ---
+    echo "Switching to Laptop display ($LAPTOP)"
+    swaymsg "output '$EXTERNAL' disable; output '$LAPTOP' enable"
+    # Update the state to reflect the change
+    echo "laptop" > "$STATE_FILE"
 fi
+
