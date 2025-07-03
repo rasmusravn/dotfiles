@@ -20,7 +20,7 @@ bindsym $mod+Shift+q kill
 # Program Launcher
 bindsym $mod+d exec --no-startup-id wofi -show drun
 
-# exec --no-startup-id xrandr --output HDMI-A-1-0 --auto --primary --left-of eDP-1-0
+# exec --no-startup-id xrandr --output HDMI-A-1-0 --auto --primary --left-of eDP-1
 bindsym $mod+p exec ~/.local/bin/switch-screen
 
 # change focus
