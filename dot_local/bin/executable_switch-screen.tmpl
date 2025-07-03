@@ -1,3 +1,4 @@
+
 #!/bin/bash
 {{- /* switch-screen.tmpl */ -}}
 #
@@ -34,12 +35,13 @@ external_is_active=$(echo "$outputs" | jq --arg name "$EXTERNAL" '.[] | select(.
 
 if [ "$external_is_active" = "true" ]; then
     # If the external monitor is active, switch to the laptop.
-    # This command first disables the external monitor, then enables the laptop monitor.
+    # We send two separate commands to avoid timing issues.
     echo "Switching to Laptop display ($LAPTOP)"
-    swaymsg "output '$EXTERNAL' disable; output '$LAPTOP' enable"
+    swaymsg "output '$EXTERNAL' disable"
+    swaymsg "output '$LAPTOP' enable"
 else
     # If the external monitor is not active, switch to it.
-    # This command first disables the laptop monitor, then enables the external one.
     echo "Switching to External display ($EXTERNAL)"
-    swaymsg "output '$LAPTOP' disable; output '$EXTERNAL' enable"
+    swaymsg "output '$LAPTOP' disable"
+    swaymsg "output '$EXTERNAL' enable"
 fi
