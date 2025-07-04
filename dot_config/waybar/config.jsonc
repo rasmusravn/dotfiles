@@ -3,14 +3,14 @@
     "height": 20,
     "spacing": 10,
     // Choose the order of the modules
-    "modules-left": [
+//    "modules-left": [
 //        "sway/workspaces",
 //        "sway/mode"
-    ],
-    "modules-center": [
+//    ],
+//    "modules-center": [
 //        "sway/window"
-    ],
-    "modules-right": [
+//    ],
+//    "modules-right": [
 //        "pulseaudio",
 //        "bluetooth",
 //        "network",
@@ -18,7 +18,7 @@
 //        "battery",
  //       "clock",
  //       "tray"
-    ],
+ //   ],
     // Modules configuration
     "sway/workspaces": {
          "disable-scroll": true,
