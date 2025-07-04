@@ -4,7 +4,7 @@
   "modules-left": [
     "sway/workspaces",
   ],
-  "modules-center": [],
+  "modules-center": ["sway/window"],
   "modules-right": [
     "pulseaudio",
     "bluetooth",
