@@ -6,7 +6,7 @@
     "sway/mode"
   ],
   "modules-center": [
-    "sway/window"
+//    "sway/window"
   ],
   "modules-right": [
     "pulseaudio",
@@ -32,9 +32,6 @@
       "focused": "",
       "default": ""
     }
-  },
-  "sway/window": {
-    "max-length": 50
   },
   "sway/mode": {
     "format": "<span style=\"italic\">{}</span>"
