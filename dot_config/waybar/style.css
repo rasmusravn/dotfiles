@@ -11,7 +11,7 @@
 @define-color gruv-orange #d65d0e;
 
 * {
-    font-family: "{{ .font.monospace }}";
+    font-family: "{{ .data.font.monospace }}";
     font-weight: bold;
     font-size: 15px;
     border-radius: 10px;
