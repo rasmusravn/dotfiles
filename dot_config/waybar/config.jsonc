@@ -3,7 +3,6 @@
   "spacing": 10,
   "modules-left": [
     "sway/workspaces",
-    "sway/mode"
   ],
   "modules-center": [
 //    "sway/window"
@@ -31,16 +30,6 @@
       "urgent": "",
       "focused": "",
       "default": ""
-    }
-  },
-  "sway/mode": {
-    "format": "<span style=\"italic\">{}</span>"
-  },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": ""
     }
   },
   "tray": {
