@@ -1,5 +1,5 @@
 # fix for firefox and maybe other apps to load normally
-exec systemctl --user import-environment
+#¤exec systemctl --user import-environment
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
