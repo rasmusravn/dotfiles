@@ -8,7 +8,7 @@
   "modules-center": [
     "sway/window"
   ],
-  "modules-right": [
+  "modules-right": [],
 //    "pulseaudio",
 //    "bluetooth",
 //    "network",
@@ -16,7 +16,7 @@
 //    "battery",
 //    "clock",
 //    "tray"
-  ],
+// ],
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
