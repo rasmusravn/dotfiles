@@ -3,44 +3,44 @@
     "height": 20,
     "spacing": 10,
     // Choose the order of the modules
-//    "modules-left": [
-//        "sway/workspaces",
-//        "sway/mode"
-//    ],
-//    "modules-center": [
-//        "sway/window"
-//    ],
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode"
+    ],
+    "modules-center": [
+        "sway/window"
+    ],
     "modules-right": [
         "pulseaudio",
         "bluetooth",
         "network",
-//       "sway/language",
+      "sway/language",
         "battery",
        "clock",
        "tray"
    ],
-//    "sway/workspaces": {
-//         "disable-scroll": true,
-//         "all-outputs": true,
-//         "warp-on-scroll": false,
-//         "format": "{name}: {icon}",
-//         "format-icons": {
-//             "1": "",
-//             "2": "",
-//             "3": "",
-//             "4": "",
-//             "5": "",
-//             "urgent": "",
-//             "focused": "",
-//             "default": ""
-//         }
-//    },
-//    "sway/window": {
-//        "max-length": 50
-//    },
-//    "sway/mode": {
- //       "format": "<span style=\"italic\">{}</span>"
-//    },
+    "sway/workspaces": {
+         "disable-scroll": true,
+         "all-outputs": true,
+         "warp-on-scroll": false,
+         "format": "{name}: {icon}",
+         "format-icons": {
+             "1": "",
+             "2": "",
+             "3": "",
+             "4": "",
+             "5": "",
+             "urgent": "",
+             "focused": "",
+             "default": ""
+         }
+    },
+    "sway/window": {
+        "max-length": 50
+    },
+    "sway/mode": {
+       "format": "<span style=\"italic\">{}</span>"
+    },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
