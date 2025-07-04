@@ -4,11 +4,11 @@
     "spacing": 10,
     // Choose the order of the modules
     "modules-left": [
-        "sway/workspaces",
-        "sway/mode"
+//        "sway/workspaces",
+//        "sway/mode"
     ],
     "modules-center": [
-        "sway/window"
+//        "sway/window"
     ],
     "modules-right": [
         "pulseaudio",
