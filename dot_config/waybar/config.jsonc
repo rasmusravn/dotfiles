@@ -11,13 +11,13 @@
 //        "sway/window"
     ],
     "modules-right": [
-        "pulseaudio",
-        "bluetooth",
-        "network",
-        "sway/language",
-        "battery",
-        "clock",
-        "tray"
+//        "pulseaudio",
+//        "bluetooth",
+//        "network",
+//        "sway/language",
+//        "battery",
+ //       "clock",
+ //       "tray"
     ],
     // Modules configuration
     "sway/workspaces": {
