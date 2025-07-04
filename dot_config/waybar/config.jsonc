@@ -9,14 +9,14 @@
     "sway/window"
   ],
   "modules-right": [],
-//    "pulseaudio",
-//    "bluetooth",
-//    "network",
-//    "sway/language",
-//    "battery",
-//    "clock",
-//    "tray"
-// ],
+    "pulseaudio",
+    "bluetooth",
+    "network",
+    "sway/language",
+    "battery",
+    "clock",
+    "tray"
+ ],
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
