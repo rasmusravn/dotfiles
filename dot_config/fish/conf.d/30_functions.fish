@@ -3,5 +3,5 @@ function note
 end
 
 function work
-	
+	swaymsg workspace 2; swaymsg exec firefox
 end
