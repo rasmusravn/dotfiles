@@ -1,11 +1,10 @@
 #!/bin/bash
-{{- /* switch-screen.tmpl */ -}}
-#
 # A simplified script to toggle display output between a laptop and external monitor.
-# It uses a state file to remember the current display, removing the need for jq.
+# It uses a state file to remember the current display.
 #
-LAPTOP="{{ .monitors.laptop }}"
-EXTERNAL="{{ .monitors.external }}"
+
+LAPTOP="eDP-1"
+EXTERNAL="HDMI-A-1"
 
 # --- Script Logic ---
 STATE_FILE="/tmp/sway_screen_state"
@@ -20,8 +19,9 @@ CURRENT_STATE=$(cat "$STATE_FILE")
 if [ "$CURRENT_STATE" = "laptop" ]; then
     # --- Try to switch from LAPTOP to EXTERNAL ---
 
-    # Use a simple grep to check if the external monitor is connected.
-    if swaymsg -t get_outputs | grep -q "\"name\": \"$EXTERNAL\""; then
+    # Check if the external monitor is connected by looking for a line starting with "Output"
+    # followed by the monitor name.
+    if swaymsg -t get_outputs | grep -q "^Output $EXTERNAL"; then
         echo "Switching to External display ($EXTERNAL)"
         swaymsg "output '$LAPTOP' disable; output '$EXTERNAL' enable"
         # Update the state to reflect the change
