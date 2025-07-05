@@ -21,7 +21,7 @@ if [ "$CURRENT_STATE" = "laptop" ]; then
 
     # Check if the external monitor is connected by looking for a line starting with "Output"
     # followed by the monitor name.
-    if swaymsg -t get_outputs | grep -q "Output $EXTERNAL"; then
+    if swaymsg -t get_outputs | grep -q $EXTERNAL; then
         echo "Switching to External display ($EXTERNAL)"
         swaymsg "output '$LAPTOP' disable; output '$EXTERNAL' enable"
         # Update the state to reflect the change
