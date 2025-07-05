@@ -157,4 +157,3 @@ bindsym XF86KbdBrightnessDown exec echo 0 | tee /sys/class/leds/asus::kbd_backli
 bindsym $mod+b exec blueman-manager
 
 output * bg /home/rasmus/.local/share/chezmoi/lort-nature.png fill
-
