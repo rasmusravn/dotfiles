@@ -4,9 +4,9 @@ end
 
 function work
 	swaymsg workspace 2; swaymsg exec firefox
-	swaymsg workspace 3; swaymsg exec obsidian
+	swaymsg workspace 10; swaymsg exec obsidian
 	sleep 3
-	swaymsg workspace 4; swaymsg exec proton-mail
+	swaymsg workspace 9; swaymsg exec proton-mail
 	sleep 3
 	swaymsg workspace 1
 end
