@@ -10,3 +10,7 @@ function work
 	sleep 3
 	swaymsg workspace 1
 end
+
+function ts
+	tmux new-session -A -s $argv[0]
+end
