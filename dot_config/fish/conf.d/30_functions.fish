@@ -12,5 +12,5 @@ function work
 end
 
 function ts
-	tmux new-session -A -s $argv[0]
+	tmux new-session -A -s $argv[1]
 end
