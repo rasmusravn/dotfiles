@@ -14,7 +14,6 @@
     "network",
     "sway/language",
     "battery",
-    "clock",
     "tray"
  ],
   "sway/workspaces": {
@@ -89,11 +88,10 @@
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
     "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
   },
-
-"custom/connection-check": {
-    "format": ": {text}",
-    "exec": "/home/{{ .chezmoi.username }}/.config/waybar/scripts/check-connection.sh",
-    "return-type": "json",
-    "interval": 10 // Runs the check every 10 seconds
-}
+  "custom/connection-check": {
+      "format": ": {text}",
+      "exec": "/home/{{ .chezmoi.username }}/.config/waybar/scripts/check-connection.sh",
+      "return-type": "json",
+      "interval": 10 // Runs the check every 10 seconds
+  }
 }
