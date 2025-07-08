@@ -3,10 +3,10 @@
 # --- CONFIGURATION ---
 # Change this to the IP address you want to monitor.
 # Make sure you can successfully `ping` this IP from your terminal.
-TARGET_IP="192.168.1.1"
+TARGET_IP="192.168.0.10"
 
 # --- ICONS & TEXT ---
-ICON_ONLINE=" connected"  # Icon for when connection is OK (e.g., LAN connect)
+ICON_ONLINE="pi connected"  # Icon for when connection is OK (e.g., LAN connect)
 ICON_OFFLINE=" not connected" # Icon for when connection is down (e.g., LAN disconnect)
 
 # --- SCRIPT LOGIC ---
