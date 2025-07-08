@@ -6,8 +6,8 @@
 TARGET_IP="192.168.1.1"
 
 # --- ICONS & TEXT ---
-ICON_ONLINE="󰤨"  # Icon for when connection is OK (e.g., LAN connect)
-ICON_OFFLINE="󰤩" # Icon for when connection is down (e.g., LAN disconnect)
+ICON_ONLINE="󰌘"  # Icon for when connection is OK (e.g., LAN connect)
+ICON_OFFLINE="" # Icon for when connection is down (e.g., LAN disconnect)
 
 # --- SCRIPT LOGIC ---
 # We ping the target IP once, with a timeout of 1 second.
