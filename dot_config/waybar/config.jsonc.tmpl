@@ -90,7 +90,7 @@
 
 "custom/connection-check": {
     "format": ": {text}",
-    "exec": "~/.config/waybar/scripts/check-connection.sh",
+    "exec": "/home/{{ .chezmoi.username }}/.config/waybar/scripts/check-connection.sh",
     "return-type": "json",
     "interval": 10 // Runs the check every 10 seconds
 }
