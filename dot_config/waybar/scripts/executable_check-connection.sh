@@ -24,5 +24,5 @@ if [ $? -eq 0 ]; then
 else
   # If ping failed, print nothing.
   # This makes the module disappear from the bar.
-  echo " no connection"
+  echo ""
 fi
