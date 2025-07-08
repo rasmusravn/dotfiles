@@ -3,7 +3,7 @@
 # --- CONFIGURATION ---
 # Change this to the IP address you want to monitor.
 # Make sure you can successfully `ping` this IP from your terminal.
-TARGET_IP="192.168.1.10"
+TARGET_IP={{ .raspberry_pi_ip | quote }}
 
 # --- ICONS & TEXT ---
 ICON_ONLINE="pi connected"  # Icon for when connection is OK (e.g., LAN connect)
