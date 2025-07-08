@@ -6,6 +6,7 @@
   ],
   "modules-center": [],
   "modules-right": [
+    "custom/connection-check",
     "pulseaudio",
     "bluetooth",
     "network",
@@ -85,5 +86,12 @@
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
     "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
-  }
+  },
+
+"custom/connection-check": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/check-connection.sh",
+    "return-type": "json",
+    "interval": 10 // Runs the check every 10 seconds
+}
 }
