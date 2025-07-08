@@ -1,9 +1,14 @@
 # ~/.config/chezmoi/chezmoi.toml.tmpl
+{{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $name := promptStringOnce . "name" "Full or work name" -}}
+{{- $vaultPath := promptStringOnce . "vault" "Obsidian vault path" -}}
+{{- $raspberry_pi_ip := promptStringOnce . "pi" "Raspberry Pi IP address" -}}
 
 [data]
-  name = "Rasmus Ravn"
+  name = "Rasmus Andersen"
   email = "YOUR_EMAIL@example.com"
   obsidian_vault_path = "~/rasmussi"
+  raspberry_pi_ip = "192.168.0.10"
 
   [data.monitors]
     laptop = "eDP-1"
