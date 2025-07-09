@@ -4,9 +4,9 @@ set -e
 {{ if eq .chezmoi.os "linux" -}}
 if [ -f /etc/debian_version ]; then
     echo "Detected Debian-based system. Using apt."
-    sudo apt-get update
-    sudo apt-get install -y sway waybar wofi wezterm fish fzf zoxide bat ripgrep tmux
-    sudo snap install nvim --classic
+    #sudo apt-get update
+    #sudo apt-get install -y sway waybar wofi wezterm fish fzf zoxide ripgrep tmux
+    #sudo snap install nvim --classic
 elif [ -f /etc/fedora-release ]; then
     echo "Detected Fedora-based system. Using dnf."
     sudo dnf install -y sway waybar wofi wezterm fish fzf zoxide bat ripgrep neovim tmux
