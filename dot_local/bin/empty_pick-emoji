@@ -1,0 +1,18 @@
+# The filename tells chezmoi to make it executable and where to put it.
+# FILENAME: executable_dot_local/bin/pick-emoji
+
+#!/bin/bash
+# A simple emoji picker script using wofi for SwayWM
+
+EMOJI_FILE="/usr/share/emojis/emojis.json"
+
+if [ ! -f "$EMOJI_FILE" ]; then
+    echo "Emoji file not found at $EMOJI_FILE" >&2
+    exit 1
+fi
+
+jq -r '.emojis[] | .emoji + " " + .description' "$EMOJI_FILE" | \
+wofi --dmenu -i -p "Select Emoji" | \
+awk '{print $1}' | \
+tr -d '\n' | \
+wl-copy
