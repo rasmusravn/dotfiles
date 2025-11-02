@@ -7,9 +7,6 @@ exec redshift -c ~/.config/redshift.conf
 font pango:monospace 15px
 font pango:DejaVu Sans Mono 8
 
-# emojis 
-bindsym $mod+e exec ~/.local/bin/pick-emoji
-
 # window config
 default_border none
 hide_edge_borders smart_no_gaps
