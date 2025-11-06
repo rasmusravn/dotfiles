@@ -1,5 +1,10 @@
 function note
-	nvim -c ":ObsidianNew "$argv[1]
+	if set -q argv[o]bsidian
+		nvim -c ":ObsidianOpen "$argv[1]
+		return
+	else if set -q argv[j]ira
+		echo "Opening Jira ticket: "$argv[1]
+	end
 end
 
 function work
