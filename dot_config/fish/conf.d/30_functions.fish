@@ -1,9 +1,22 @@
 function note
-	if set -q argv[o]bsidian
-		nvim -c ":ObsidianOpen "$argv[1]
-		return
-	else if set -q argv[j]ira
-		echo "Opening Jira ticket: "$argv[1]
+	set -l options (fish_opt -s o -l obsidian)
+	set options $options (fish_opt -s j -l jira)
+	argparse $options -- $argv
+	or return
+
+	if set -q _flag_obsidian
+		if test (count $argv) -eq 0
+			echo "Error: Please provide a note name"
+			return 1
+		end
+		nvim -c ":ObsidianOpen $argv[2]"
+	else if set -q _flag_jira
+		echo "Opening Jira tickets assigned to me..."
+		# Add your Jira command here
+		# Example: jira issue list --assignee $(jira me)
+	else
+		echo "Usage: note -o|--obsidian <note-name> | note -j|--jira"
+		return 1
 	end
 end
 
