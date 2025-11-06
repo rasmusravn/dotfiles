@@ -12,15 +12,25 @@ sudo apt install -y \
     build-essential \
     fish \
     neovim \
-    sway \
-    waybar \
-    wofi \
     tmux \
     ripgrep \
     fd-find
+
+if ! grep -q "microsoft" /proc/version 2>/dev/null; then
+    echo "Not running under WSL, performing additional setup..."
+    # Add any non-WSL specific setup here
+    sudo apt install -y \
+	sway \
+	waybar \
+	wofi
+else
+    echo "Running under WSL, skipping non-WSL specific setup..."
+fi
 {{ else -}}
 echo "Unsupported OS: {{ .chezmoi.os }}"
 exit 1
 {{ end -}}
+
+
 
 echo "Package installation complete."
