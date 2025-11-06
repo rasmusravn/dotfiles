@@ -9,7 +9,7 @@ function note
 			echo "Error: Please provide a note name"
 			return 1
 		end
-		nvim -c ":ObsidianOpen $argv[2]"
+		nvim -c ":ObsidianOpen $argv[1]"
 	else if set -q _flag_jira
 		echo "Opening Jira tickets assigned to me..."
 		# Add your Jira command here
