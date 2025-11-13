@@ -11,10 +11,17 @@ sudo apt update
 sudo apt install -y \
     build-essential \
     fish \
-    neovim \
     tmux \
     ripgrep \
-    fd-find
+    fd-find \
+    rustup
+sudo rustup default stable
+sudo cargo install zoxide --locked
+sudo cargo install starship --locked
+sudo snap install chezmoi --classic
+sudo snap install nvim --edge --classic
+sudo apt autoremove
+
 
 if ! grep -q "microsoft" /proc/version 2>/dev/null; then
     echo "Not running under WSL, performing additional setup..."
