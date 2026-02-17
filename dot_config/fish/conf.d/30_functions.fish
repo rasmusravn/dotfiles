@@ -20,7 +20,7 @@ function note
 end
 
 function work
-	swaymsg workspace 2; swaymsg exec firefox
+	swaymsg workspace 2; swaymsg exec brave-browser
 	swaymsg workspace 10; swaymsg exec obsidian
 	sleep 3
 	swaymsg workspace 9; swaymsg exec proton-mail
