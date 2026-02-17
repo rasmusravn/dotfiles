@@ -102,13 +102,6 @@ return { -- LSP Configuration & Plugins
 						},
 						-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
 						diagnostics = { disable = { "missing-fields" } },
-						format = {
-							enable = true,
-							defaultConfig = {
-								indent_style = "space",
-								indent_size = "2", -- Must be a string
-							},
-						},
 					},
 				},
 			},
